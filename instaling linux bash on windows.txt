@@ -1,0 +1,175 @@
+running linux bash on windows. 
+go to features and turn on "Windows Subsystem for Linux"
+Then download ubuntu (or some other linux distrubution) from the windows store
+Open Ubuntu from the Ubuntu app (not the command prompt) to initialize installation
+
+	Create username and password
+	
+	
+	then you are in a linux bash shell 
+	
+	quick tips 
+	
+	pwd 					<- print current working directory (where you are now)
+	ls -la 					<- print all the files in your current directory
+	
+	
+	ls /mnt/ 				<- will bring you to the c drive
+	
+	
+	touch test.txt 			<- will create a new file called test.txt 
+	nano test.txt			<- opens test.txt in an editor
+		IN NANO
+		crtl-x 				<- exit
+		y + enter			<- save 
+		
+	cat test.txt 			<- shows you what's in test.txt file 
+	
+	
+	sudo apt-get update		<- updates the linux bash
+	sudo aptget upgrade 	<- upgrades the linux bash (necessary)
+	sudo apt install tree	<- installs the tree app so you can see file folder structure
+	
+	tree 					<- once tree is installed this will show you the file folder
+								structure wherever you run this 
+
+    cd						<- goes to linux home directory
+
+
+
+
+
+after you have all of that installed (and have your home directory changed, 
+which you need to do) you can open the bash terminal whenever you're inside command prompt 
+with the command:user
+bash
+
+
+
+# some moving around in the bash shell 
+user@DESKTOP-49Q9VPH:~$ cd /mnt/c
+user@DESKTOP-49Q9VPH:/mnt/c$ ls -la
+ls: cannot read symbolic link 'Documents and Settings': Permission denied
+ls: cannot access 'hiberfil.sys': Permission denied
+ls: cannot access 'pagefile.sys': Permission denied
+ls: PerfLogs: Permission denied
+ls: cannot access 'swapfile.sys': Permission denied
+ls: 'System Volume Information': Permission denied
+total 420
+drwxrwxrwx 1 user user   4096 Dec 17 21:42 '$Recycle.Bin'
+drwxrwxrwx 1 user user   4096 Dec 17 15:09 '$SysReset'
+drwxrwxrwx 1 user user   4096 Jan 12 11:18  .
+drwxr-xr-x 1 root root   4096 Jan 12 11:23  ..
+lrwxrwxrwx 1 user user     12 Dec 17 15:56 'Documents and Settings'
+drwxrwxrwx 1 user user   4096 Dec 20 21:05  Intel
+drwxrwxrwx 1 user user   4096 Jan 12 11:18  OneDriveTemp
+d--x--x--x 1 user user   4096 Sep 15 03:33  PerfLogs
+dr-xr-xr-x 1 user user   4096 Dec 23 16:14 'Program Files'
+dr-xr-xr-x 1 user user   4096 Jan  9 11:33 'Program Files (x86)'
+drwxrwxrwx 1 user user   4096 Dec 20 21:29  ProgramData
+drwxrwxrwx 1 user user   4096 Dec 20 21:02  Recovery
+d--x--x--x 1 user user   4096 Jan 12 10:52 'System Volume Information'
+dr-xr-xr-x 1 user user   4096 Dec 20 21:07  Users
+dr-xr-xr-x 1 user user   4096 Dec 31 06:08  Windows
+-r-xr-xr-x 1 user user 427680 Aug 22  2013  bootmgr
+-????????? ? ?    ?         ?            ?  hiberfil.sys
+-????????? ? ?    ?         ?            ?  pagefile.sys
+-????????? ? ?    ?         ?            ?  swapfile.sys
+user@DESKTOP-49Q9VPH:/mnt/c$ cd Users
+user@DESKTOP-49Q9VPH:/mnt/c/Users$ ls
+ls: cannot read symbolic link 'All Users': Permission denied
+ls: cannot read symbolic link 'Default User': Permission denied
+'All Users'   Default  'Default User'   Public   desktop.ini   user
+user@DESKTOP-49Q9VPH:/mnt/c/Users$ cd user
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user$ ls
+ls: cannot read symbolic link 'Application Data': Permission denied
+ls: cannot read symbolic link 'Cookies': Permission denied
+ls: cannot read symbolic link 'Local Settings': Permission denied
+ls: cannot read symbolic link 'My Documents': Permission denied
+ls: cannot read symbolic link 'NetHood': Permission denied
+ls: cannot read symbolic link 'PrintHood': Permission denied
+ls: cannot read symbolic link 'Recent': Permission denied
+ls: cannot read symbolic link 'SendTo': Permission denied
+ls: cannot read symbolic link 'Start Menu': Permission denied
+ls: cannot read symbolic link 'Templates': Permission denied
+'3D Objects'
+ AppData
+'Application Data'
+ Contacts
+ Cookies
+ Desktop
+ Documents
+ Downloads
+ Favorites
+ IntelGraphicsProfiles
+ Kivy_Mock_Up
+ Links
+'Local Settings'
+ MicrosoftEdgeBackups
+ Music
+'My Documents'
+ NTUSER.DAT
+ NTUSER.DAT{2eb3908f-04c4-11e9-b36d-a7d626bc7e2e}.TM.blf
+ NTUSER.DAT{2eb3908f-04c4-11e9-b36d-a7d626bc7e2e}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{2eb3908f-04c4-11e9-b36d-a7d626bc7e2e}.TMContainer00000000000000000002.regtrans-ms
+ NetHood
+ OneDrive
+ Pictures
+ PrintHood
+ Recent
+'Saved Games'
+ Searches
+ SendTo
+'Start Menu'
+ Templates
+ Videos
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ ntuser.ini
+ venv
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user$
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user$ cd Desktop
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user/Desktop$ ls -la
+total 1052580
+drwxrwxrwx 1 user user      4096 Jan 12 09:41  .
+drwxrwxrwx 1 user user      4096 Jan 12 09:41  ..
+drwxrwxrwx 1 user user      4096 Dec 28 08:52 'AWS KeyPairs'
+-rwxrwxrwx 1 user user     11331 Dec 31 08:39  BASIC_PYTORCH_CNN.py
+drwxrwxrwx 1 user user      4096 Jan 10 14:26  Bootstrap_Templates
+drwxrwxrwx 1 user user      4096 Jan 11 11:28 'Cycling blog'
+drwxrwxrwx 1 user user      4096 Jan 12 09:41 'Deep Learning'
+drwxrwxrwx 1 user user      4096 Dec 21 12:07  Flask_Skeleton
+drwxrwxrwx 1 user user      4096 Dec 24 11:56  Marina
+drwxrwxrwx 1 user user      4096 Jan  9 11:30 'OpenOffice 4.1.6 (en-US) Installation Files'
+drwxrwxrwx 1 user user      4096 Dec 17 21:22  UdemyDataScience
+drwxrwxrwx 1 user user      4096 Jan 12 09:41  Website_Snippets_And_Cheat_Sheets
+drwxrwxrwx 1 user user      4096 Jan  6 08:13  __MACOSX
+drwxrwxrwx 1 user user      4096 Jan  5 08:57  __pycache__
+-rwxrwxrwx 1 user user      4829 Dec 27 23:40  banas_student_kivy_gui.kv
+-rwxrwxrwx 1 user user      6219 Dec 27 23:39  banas_student_kivy_gui.py
+-rwxrwxrwx 1 user user    313992 Dec 27 10:50  bird.jpg
+-rwxrwxrwx 1 user user 538719295 Jan  6 13:42  checkpoint_010619_01PM.pt
+-rwxrwxrwx 1 user user       282 Dec 20 21:26  desktop.ini
+-rwxrwxrwx 1 user user      1345 Jan  7 07:38  hidding_keys_in_environment_variables.py
+drwxrwxrwx 1 user user      4096 Jan  6 08:13 'making_flask_deep learning app'
+-rwxrwxrwx 1 user user 538719295 Jan  6 13:42  model_part1.pt
+-rwxrwxrwx 1 user user       932 Jan  3 10:19  printing_text_without_punctuation.py
+drwxrwxrwx 1 user user      4096 Dec 18 07:31 'pycharm projects 0815218'
+-rwxrwxrwx 1 user user       482 Dec 18 11:36  runningPythonInTerminal.py
+-rwxrwxrwx 1 user user      3671 Dec 18 07:41  sqlDatabase.py
+-rwxrwxrwx 1 user user      1344 Jan  5 08:54  studentdb.kv
+-rwxrwxrwx 1 user user      2302 Jan  5 08:54  studentdb.py
+-rwxrwxrwx 1 user user       685 Dec 18 09:57  virtualEnvironmentHowTo.py
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user/Desktop$ touch test.txt
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user/Desktop$ nano test.txt
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user/Desktop$ cat test.txt
+Writing
+user@DESKTOP-49Q9VPH:/mnt/c/Users/user/Desktop$
+
+
+
+
+
+
+more info can be found on corey shafers tutorial 
+https://www.youtube.com/watch?v=xzgwDbe7foQ	

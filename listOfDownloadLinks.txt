@@ -1,0 +1,24 @@
+// list of download links
+
+// Apache Open Office for windows 10
+https://sourceforge.net/projects/openofficeorg.mirror/files/4.1.6/binaries/en-US/Apache_OpenOffice_4.1.6_Win_x86_install_en-US.exe/download
+
+// C++ for Windows
+https://sourceforge.net/projects/mingw/
+
+// Python 3.x
+https://www.python.org/downloads/
+
+// Atom Editor (favorite for multi-use projects, Python + CSS + JS + HTML and the like 
+https://atom.io/
+
+// VS Code Community (So far, I only like it for C++)
+https://code.visualstudio.com/Download
+
+
+// PyCharm (great editor, but pushes the idea of virtual environments away from the user, so not good for beginners)
+https://www.jetbrains.com/pycharm/download/#section=windows
+
+
+// Notepad++ (The best text editor, super quick and easy)
+https://notepad-plus-plus.org/download/v7.6.2.html

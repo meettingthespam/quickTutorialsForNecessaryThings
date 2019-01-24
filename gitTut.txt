@@ -1,0 +1,462 @@
+// basic git commands
+	// side note, if you're in the "git bash" which comes with the windows installation
+	// of git, you don't have to type the "$" in front of each command, it's already there
+	// also, if you choose to use the command line, you don't have to type the "$" either
+	// just type "git <command>" for instance, 
+	// git --version 
+	
+
+$ git init 						// initialize local git repositiory, 
+								// creates a .git file in that folder
+								// it's hidden by default, you'll rarely (if ever) need to go into this folder
+							
+// after you initialize the repostitory ^^ you can start doing other commands 
+
+$ git add <flileName>			// adds file(s) to index
+								// you can run this command as many times as needed
+								// and it'll be in the staging area until you commit it (like a database command)
+
+$ git status 					// checks the status of working tree
+								// aka, shows what's in the staging area 
+
+							
+$ git commit 					// commits the changes in the index			
+
+$ touch <fileNameWithExtension> // creates a new file (i.e. "touch somethingAwesome.py" creates a file named index in html format)
+
+
+$ git config
+
+
+// HAVING TO DO WITH REMOTE DEPOSITORS (github, bitbucket, whatevs)
+
+$ git push 						// takes your local respository and pushes it to THE CLOUD!
+								// (pushes it to a remote depository, for instance, github - 
+								// you'll have to add that remote depository and log in)
+								// You can also create SSH keys with github to avoid 
+								// having to login with a password
+							
+$ git pull						// "pulls" the latest changes from the remote repository
+
+$ git clone 					// "clones" the requested (remote) repository into your current folder 
+								// (if you clone something from the web, it'll download to your machine)
+							
+							
+							
+$ git --version					// gives you what version you have 
+
+
+// downloading git
+// Linux (debian)
+	// $ sudo apt-get install git 
+
+// Mac
+	// http://git-scm.com/download/mac
+// Windows
+	// http://git-scm.com/download/mac
+	
+	
+	
+	
+	
+// okay, quick run through:
+// create a simple website
+// create a folder on the desktop (or wherever is easiest for you)
+// Right click (on windows) that folder and click "Git Bash here"
+// you'll see something like this :
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+	// which is your username at the desktop, using the MINGW64 (64 bit version of git)
+	// and you're in the Subfolder "UpDog" on the Desktop
+	// what's "UpDog" you ask?
+	// it's the folder name I created at the first step
+	
+// creating the html, css and js files (empty for now)
+
+$ touch somethingAwesome.py 
+
+$ touch stupidCoolMathIdea.py
+
+$ touch ohMyThisIsAwesome.py 
+
+
+// after you press enter, Git Bash won't show you anything saying it's created 
+// but if you have the folder open, you can actually see the files magically appear
+
+// now you can open an editor with that folder and start playing around, 
+// add some html, css, or js, or whatever you want 
+// save the files (in the editor)
+
+// then initialize the folder, YOU HAVE TO DO THIS BEFORE "SAVING" THE GIT
+	// side note, if you have Git Bash open the entire time (and opened it in the folder you're playing with),
+	// you'll still be in this folder 
+	
+$ git init
+
+// you will see this response on Git Bash 
+	// Initialized empty Git repository in C:/Users/user/Desktop/UpDog/.git/
+// and you'll see a new folder called .git 
+// which contains:
+	.
+	├── HEAD
+	├── config
+	├── description
+	├── hooks
+	│   ├── applypatch-msg.sample
+	│   ├── commit-msg.sample
+	│   ├── fsmonitor-watchman.sample
+	│   ├── post-update.sample
+	│   ├── pre-applypatch.sample
+	│   ├── pre-commit.sample
+	│   ├── pre-push.sample
+	│   ├── pre-rebase.sample
+	│   ├── pre-receive.sample
+	│   ├── prepare-commit-msg.sample
+	│   └── update.sample
+	├── index
+	├── info
+	│   └── exclude
+	├── objects
+	│   ├── 3b
+	│   │   └── 52c062f6fe0c36c762f151075f6a9ff0a1346c
+	│   ├── info
+	│   └── pack
+	└── refs
+		├── heads
+		└── tags
+
+	// SIDE NOTE:
+	// play around with these ^^ if you want to learn more, 
+	// but you don't need the information to use Git
+	
+// add your username and email:
+
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git config --global user.name "user"
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git config --global user.email "user@fake.com"
+
+
+
+// after you initialize the git repostitory and login 
+// add a file to see what's what (here's what I see):
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add somethingAwesome.py
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+
+// 			checking the status before commiting: 					//
+$ git status
+
+On branch master
+
+No commits yet
+
+// 		this says it's been added, but not commited just yet 		//
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   somethingAwesome.py
+
+
+// 	this says the ohMyThisIsAwesome.py and stupidCoolMathIdea.py hasn't even been added yet 	//
+// 	and thus wont' be, even if it is committed. Rough, I know 		// 
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ohMyThisIsAwesome.py
+		stupidCoolMathIdea.py
+
+
+// want to remove a file you just added?
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git rm --cached somethingAwesome.py
+rm 'somethingAwesome.py'
+
+
+// want to batch add the same file type?
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add *.py
+
+
+// want to just add everything?
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add .
+
+
+// Shoot, did you edit a file AFTER already adding it? 
+// Double check by running git status 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git status
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   ohMyThisIsAwesome.py
+        new file:   somethingAwesome.py
+        new file:   stupidCoolMathIdea.py
+
+// 	this says it's been added, but not AFTER the changes you just made	//
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   somethingAwesome.py
+
+
+// add the file(s) again and then check the status 
+// you'll see it's back in the staging area 
+
+
+// Ready to commit all these changes?
+// let's do it the straight forward way:
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git commit 
+
+// BOOM! YOU'RE IN A VIM EDITOR!
+	// YOU CAN'T EVEN TYPE111
+	// press "i", this puts you into "insert mode"
+	// (SIDE NOTE, THE COMMENTS IN THIS EDITOR HAVE A "#" IN FRONT OF THEM)
+	// Type "Intial Commit" (or just remove the hash symbol from the intial commit on the screen)
+	// Next, press "esc" which gets you out of "insert mode"
+	// then press ":wq" and press enter 
+	// you'll be transported back to the "normal" git bash 
+	// and you'll see this response:
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git commit
+[master (root-commit) 7158373]  Initial commit
+ 3 files changed, 10 insertions(+)
+ create mode 100644 ohMyThisIsAwesome.py
+ create mode 100644 somethingAwesome.py
+ create mode 100644 stupidCoolMathIdea.py
+
+
+// Now you're committed!
+
+
+// now if you did a git status, nothing would be there, 
+// because nothing is in the "que"
+// BUT let's edit the .js file  (in the text editor)
+// and then afterwards, check the status
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   ohMyThisIsAwesome.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+// okay, lets add the newly changed .js file and then commit
+// (but let's skip that VIM edit stage)
+// the way we do that is we add the comment directly in line like so:
+	// syntax is -m "comment you're making about whatever"
+	
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git commit -m "changed ohMyThisIsAwesome.py"
+[master 9a76d74] changed ohMyThisIsAwesome.py
+ 1 file changed, 1 insertion(+)
+
+
+
+
+// 			GITIGNORE 			//
+// these are files or whatever that we don't want to include in our repository,
+// so even if we did a "git add ." it wouldn't include these 
+// create the .gitignore file and then add whatever file names you want in it 
+// and jen vi ekas! you have a file that contains other file names that git will check 
+// before adding or commiting and "ignore" them
+
+// for example: 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ touch .gitignore
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ touch log.txt
+
+
+// after I created log.txt, I added the straight text "log.txt"
+// into the .gitignore file 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add .
+// and as you can see, git didn't even see the log.txt file, 
+
+//just the .gitignore file 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   .gitignore
+
+
+
+// That is super cool, like "updog", cool, but how do I add entire folders??
+// It's logical, how you would think, because Linus Torvalds is a pretty logical guy
+// Just add a "/" (on windows) infront of the folder name in the .gitignore file 
+
+
+// for example, I just made two folders, Dir1 and Dir2, but I don't want that rude Dir1,
+// I want that sleek, not ablesit, folder Dir2, 
+// so I just added (on a new line)
+// "/Dir1"  (without the quotation marks
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add .
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   .gitignore
+        new file:   Dir2/dumbMeansMuteSoStopUsingIt.py
+
+
+
+// Branches //
+// Side note: Different file name examples: //
+
+// Say there's a team of developers, and you are assigned to build something 
+// super duper cool, but you don't want to just add it to the final 
+// project yet, in case it affects the rest of the team or the project
+// so you make a branch that only affects your "copy" of the project at that state
+// (kinda like a sandbox or virtual environment)
+
+// When you're in a different branch than master, and you edit something, then 
+// go back to the master branch, you'll see that EVERYTHING you altered will just
+// not be there anymore. Pretty cool.
+
+
+// creating the branch called "bonanTogan"
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git branch bonanTogan
+
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git checkout bonanTogan
+Switched to branch 'bonanTogan'
+
+// creating something in that branch 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ touch somethingSuper.py
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add .
+
+// commiting those changes in that branch
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git commit -m "just making changes for fun"
+[bonanTogan 6b35893] just making changes for fun
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 somethingSuper.py
+
+// switching back to master brach 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git checkout master
+Switched to branch 'master'
+
+
+// merging the branch into master 
+// when you do this you'll be put back into the VIM editor, 
+// press i (insert mode) and then add your comment on why you're merging
+// then "esc" and ":wq" to finalize the changes
+
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git merge bonanTogan
+Updating 83656f8..6b35893
+Fast-forward
+ somethingSuper.py | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 somethingSuper.py
+
+
+
+// Adding this all to Github //
+// login, add new repository
+// gives you options to add README.md and .gitignore,
+// do as you please, but you if you already have these, don't add more 
+	// Side Note: Add a README.md if it's a public repostitory and other people will be reading it 
+			//(.md to display nicely on the page, means "mark down")
+
+
+
+
+// linking your remote repository with github 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git remote add origin https://github.com/meettingthespam/stuff.git
+
+// pushing everything from your master branch to github 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 4.32 KiB | 4.32 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/meettingthespam/stuff.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+
+
+// creating a readme.md
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ touch README.md
+
+// adding the readme.md (that you just edited)
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git add .
+
+// commiting the changes 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git commit -m "added readmeeeee"
+[master 10bb446] added readmeeeee
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+ 
+ 
+// now that has been added, you just have it added to your local repostitory, 
+// if you want it on github, just use "git push" and it'll push it for you 
+
+user@DESKTOP-jiber15h2m3 MINGW64 ~/Desktop/UpDog (master)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 320 bytes | 320.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/meettingthespam/stuff.git
+   d8a967c..10bb446  master -> master
+
+			
