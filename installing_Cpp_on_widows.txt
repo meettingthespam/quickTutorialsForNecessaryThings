@@ -1,0 +1,31 @@
+// How to install C++ on windows
+
+// Go to https://sourceforge.net/projects/mingw/
+// install, use the default settings
+
+// After it is "instaled"
+// you will be shown a window called "MinGW Installation"
+// make sure the following are selected
+		//'mingw-developer-tools'
+		// 'mingw32-base'
+		// 'mingw32-gcc-g++'   //This is C++
+		// 'msysbase'
+
+// Next click on top left, installation, and apply changes 
+
+
+// Next you have to add this to your environment variables
+// search for "Environment Variables" in Windows.
+
+// add 'C:\MinGW\bin' to your path (by clicking edit on PATH)
+// then add 'C:\MinGW\MSYS\1.0\bin'
+
+
+// VERIFY everything went okay:
+// go to command line and type "g++ --verson"
+// something like shit should pop up
+C:\Users\user>g++ --version
+g++ (MinGW.org GCC-6.3.0-1) 6.3.0
+Copyright (C) 2016 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
