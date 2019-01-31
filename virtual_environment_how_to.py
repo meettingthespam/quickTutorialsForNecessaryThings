@@ -6,7 +6,7 @@
 virtualenv FolderYoureMakingPythonVirtualEnvironmentIn
 
 # running the environment OPTION 1 (I STILL HAVEN'T GOTTEN THIS TO WORK)
-source FolderYoureMakingPythonVirtualEnvironmentIn/bin/actiavte
+source FolderYoureMakingPythonVirtualEnvironmentIn/bin/activate
 
 # OPTION 2 (WORKS EVERYTIME)
 # locate the activate.bat file in the Scripts folder and run it in termninal with "" around it
