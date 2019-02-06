@@ -1,4 +1,5 @@
 #deploying a linux server from scratch
+
 #example being used is ssd drive through linode
 
 
