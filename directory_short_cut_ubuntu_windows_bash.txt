@@ -1,0 +1,39 @@
+TO INSTALL A SHORTCUT DIRECTORY IN LINUX BASH ON WINDOWS:
+
+~ <- THAT MEANS HOME DIRECTORY
+
+
+IN THE LINUX BASH HOME DIRECTORY OPEN THE RC FILE WITH THE NANO EDITOR:
+
+john@DESKTOP-50Q7VPH:~$ nano ~/.bashrc
+
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
+
+ADD THIS LINE IF YOU WANT A SHORTCUT TO THE WINDOWS HOME DIRECTORY:
+alias winhome='cd /mnt/c/Users/john/'
+
+
+
+
+TO SAVE ALTERED RC FILE:
+	control-x, y to save, enter to keep the same file name
+
+
+
+
+SAVE THE CHANGES IN .bashrc
+john@DESKTOP-50Q7VPH:~$ source ~/.bashrc
+
+NOW winhome WORKS  (NO NEED TO cd, SINCE THAT'S ALREADY IN THE VARIABLE NAME
+john@DESKTOP-50Q7VPH:~$ winhome
+john@DESKTOP-50Q7VPH:/mnt/c/Users/john$
