@@ -1,6 +1,6 @@
-#deploying a linux server from scratch
+# deploying a linux server from scratch
 
-#example being used is ssd drive through linode
+# example being used is ssd drive through linode
 
 
 ## easiest way to do this is to have two bash terminals open at the same time
@@ -9,9 +9,9 @@
 
 
 # Side Note:
-	## want to spin up a linux server quicker?
-	## click on Create New Linode, Create from StackScript
-	## they have a bunch, like wordpress for example
+	want to spin up a linux server quicker?
+	click on Create New Linode, Create from StackScript
+	they have a bunch, like wordpress for example
 
 
 ## take the ssh command and run it in linux bash 
@@ -20,30 +20,32 @@
 ### should look something like this:
 ssh root@45.79.17.21 
 
-##first thing, update and upgrade your ubuntu with command:	
+## first thing, update and upgrade your ubuntu with command:	
 
 apt update && apt upgrade
 
-##after that happens, you're going to want to set your host name
+## after that happens, you're going to want to set your host name
 ## with command:
 hostnamectl set-hostname PineappleApp-server
 
 ## double checkig to make sure it's updated
-##(this should return whatever you named your hostname)
+## (this should return whatever you named your hostname)
 
-hostname 
+	hostname 
 
 
 ## now you have to also set his new host name in your host file
 ## do this with the built in editor nano
 nano /etc/hosts
 
+
 ### what you'll see is this:
+
 
 127.0.0.1       localhost
 
-## This the only thing you add or change:
-### add your custom ip address here and update the host name
+#### This the only thing you add or change:
+#### add your custom ip address here and update the host name:
 45.79.17.21     PineappleApp-server
 
 The following lines are desirable for IPv6 capable hosts
@@ -57,12 +59,12 @@ ffo2::2 ip6-allrouters
 
 adduser john
 
-## add a password for the user, and fill out anything else for it 
+## add a password for the user, and fill out anything else for it (if so desired, not necessary)
 
 
 
 ## then you can add their privilages 
-##(sudo if you don't remember/didn't know if for root commands until restricted)
+## (sudo if you don't remember/didn't know is for root commands until restricted)
 adduser john sudo
 
 
@@ -78,44 +80,45 @@ ssh john@45.79.17.21
 ## make a .ssh directory inside the linux machine (linode in this case)
 mkdir .ssh
 
+
 ## now on your local machine (not the linode)
+
 # generating a key 
-## logout of your session with the linux server (or just have two terminals open up)
 
 ## this generates the key and the "-b 4096" keeps it more secure
 ssh-keygen -b 4096
 
 ## this prints:
-### Generating public/private rsa key pair.
-### Enter file in which to save the key (C:\Users\john/.ssh/id_rsa):
-## you can leave the default if you'd like or make a new file name/location
-## it'll prompt you for a passcode, do this if you'd want it more secure, 
-## but it's not neccesary
+	Generating public/private rsa key pair.
+	Enter file in which to save the key (C:/Users/john/.ssh/id_rsa):
+	you can leave the default if you'd like or make a new file name/location
+	it'll prompt you for a passcode, do this if you'd want it more secure, 
+	but it's not neccesary
 
 ## A public key will be generated and look something like 
 ## this if you kept the defualt settings 
 
-Generating public/private rsa key pair.
-Enter file in which to save the key (C:/Users/john/.ssh/id_rsa):
-Created directory 'C:/Users/john/.ssh'.
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /home/john/.ssh/id_rsa.
-Your public key has been saved in /home/john/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:uAR18w/iogxrdppO7q44FiDIeNh8apmxdACA6JXqOg4 john@DESKTOP-49Q9VPH
-The key's randomart image is:
-+---[RSA 4096]----+
-|     .           |
-|    + +          |
-|     = o. .      |
-|      . .o .     |
-|     .  S.. * o  |
-|.. . ...  .= E o |
-|=.o.= .. ...o +o.|
-|.*++.o.  ++ ..o..|
-|oo=o.o  .+=o .  o|
-+----[SHA256]-----+
+	Generating public/private rsa key pair.
+	Enter file in which to save the key (C:/Users/john/.ssh/id_rsa):
+	Created directory 'C:/Users/john/.ssh'.
+	Enter passphrase (empty for no passphrase):
+	Enter same passphrase again:
+	Your identification has been saved in /home/john/.ssh/id_rsa.
+	Your public key has been saved in /home/john/.ssh/id_rsa.pub.
+	The key fingerprint is:
+	SHA256:uAR18w/iogxrdppO7q44FiDIeNh8apmxdACA6JXqOg4 john@DESKTOP-49Q9VPH
+	The key's randomart image is:
+	+---[RSA 4096]----+
+	|     .           |
+	|    + +          |
+	|     = o. .      |
+	|      . .o .     |
+	|     .  S.. * o  |
+	|.. . ...  .= E o |
+	|=.o.= .. ...o +o.|
+	|.*++.o.  ++ ..o..|
+	|oo=o.o  .+=o .  o|
+	+----[SHA256]-----+
 
 
 
@@ -125,13 +128,13 @@ The key's randomart image is:
 ### scp might stand for secure copy, 
 ### and the tidla (~) is for the home directory location, then the .ssh, 
 ### then a brand new file named "authorized_keys" 
-###(you don't need file extensions declared with linux)
+### (you don't need file extensions declared with linux)
 
 scp ~/.ssh/id_rsa.pub john@45.79.17.21:~/.ssh/authorized_keys
 
 
-## now back in your server, make sure the key is there 
- john@PineappleApp-server:~$ ls .ssh
+## NOW BACK IN YOUR SERVER, make sure the key is there 
+ls .ssh
 ## this should show:
  authorized_keys
 
@@ -142,10 +145,10 @@ scp ~/.ssh/id_rsa.pub john@45.79.17.21:~/.ssh/authorized_keys
  sudo chmod 700 ~/.ssh/
  sudo chmod 600 ~/.ssh/*
 		 
-		###  side note about these linux restrictions:
-			#### the first digit of permission is for the user 
-			####  the second digit is for the read, write and execute
-			####  the third digit is for everyone else 
+		side note about these linux restrictions:
+			 the first digit of permission is for the user 
+			 the second digit is for the read, write and execute
+			 the third digit is for everyone else 
 
 ## okay, now logout and log back in, it should just do it without needed a passcode 
 
@@ -177,8 +180,10 @@ sudo systemctl restart sshd
 ### allowing outgoing traffic
 sudo ufw default allow outgoing
 
+
 ### denying incoming traffic 
 sudo ufw default deny incoming
+
 
 ## TO MAKE SURE YOU DON'T GET LOCKED OUT OF YOUR SERVER
 ### allow incoming into certain ports 
