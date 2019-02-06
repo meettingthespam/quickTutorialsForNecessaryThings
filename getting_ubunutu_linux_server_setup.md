@@ -4,8 +4,7 @@
 
 
 ## easiest way to do this is to have two bash terminals open at the same time
-### this way you aren't having to log back into your linux linode server 
-### and back into your local machine , back and forth
+### this way you aren't having to log back into your linux linode server and back into your local machine , back and forth
 
 
 # Side Note:
@@ -20,23 +19,38 @@
 ### should look something like this:
 ssh root@45.79.17.21 
 
+
+
+
 ## first thing, update and upgrade your ubuntu with command:	
 
 apt update && apt upgrade
+
+
+
 
 ## after that happens, you're going to want to set your host name
 ## with command:
 hostnamectl set-hostname PineappleApp-server
 
+
+
+
 ## double checkig to make sure it's updated
 ## (this should return whatever you named your hostname)
+hostname 
 
-	hostname 
+
+	PineappleApp-server
+
+
 
 
 ## now you have to also set his new host name in your host file
 ## do this with the built in editor nano
 nano /etc/hosts
+
+
 
 
 ### what you'll see is this:
